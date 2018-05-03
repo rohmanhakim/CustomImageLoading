@@ -20,7 +20,7 @@ class ProgressWatchableGlide {
                         url: String,
                         onUpdate: (bytesRead: Long, contentLength: Long) -> Unit,
                         onReady: () -> Unit,
-                        onError: () -> Unit): DrawableRequestBuilder<GlideUrl> {
+                        onError: (e: Exception) -> Unit): DrawableRequestBuilder<GlideUrl> {
             Glide.get(context).initProgressListener(onUpdate)
             return Glide.with(context)
                     .load(GlideUrl(url))
@@ -46,12 +46,12 @@ class ProgressWatchableGlide {
         fun DrawableRequestBuilder<GlideUrl>.addProgressListener(
                 context: Context,
                 onReady: () -> Unit,
-                onError: () -> Unit
+                onError: (e: Exception) -> Unit
         ): DrawableRequestBuilder<GlideUrl> {
 
             return this.listener(object : RequestListener<GlideUrl, GlideDrawable> {
                 override fun onException(e: Exception?, model: GlideUrl?, target: Target<GlideDrawable>?, isFirstResource: Boolean): Boolean {
-                    onError()
+                    e?.let { onError(it) }
                     return false
                 }
 
