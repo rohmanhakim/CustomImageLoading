@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SingleImageActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:minHeight="240dp"
+            android:scaleType="fitCenter" />
+
+        <com.todddavies.components.progressbar.ProgressWheel
+            android:id="@+id/progressBar"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_centerInParent="true"
+            ProgressWheel:pwBarColor="#0097D6"
+            ProgressWheel:pwBarLength="60dp"
+            ProgressWheel:pwBarWidth="3dp"
+            ProgressWheel:pwRimColor="#330097D6"
+            ProgressWheel:pwRimWidth="2dp"
+            ProgressWheel:pwTextColor="#222"
+            ProgressWheel:pwTextSize="14sp" />
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

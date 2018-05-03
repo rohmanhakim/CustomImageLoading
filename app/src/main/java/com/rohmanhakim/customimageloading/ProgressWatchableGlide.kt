@@ -34,7 +34,7 @@ class ProgressWatchableGlide {
                             override fun intercept(chain: Interceptor.Chain?): Response {
                                 val response = chain?.proceed((chain.request()))
                                 return response?.newBuilder()?.body(
-                                        CustomResponseBody(response.body(), onUpdate)
+                                        CustomResponseBody(response.body()!!, onUpdate)
                                 )?.build()!!
                             }
                         }).build()
@@ -70,7 +70,7 @@ class ProgressWatchableGlide {
     ) : ResponseBody() {
         private var bufferedSource: BufferedSource? = null
 
-        override fun contentType(): MediaType {
+        override fun contentType(): MediaType? {
             return responseBody.contentType()
         }
 
