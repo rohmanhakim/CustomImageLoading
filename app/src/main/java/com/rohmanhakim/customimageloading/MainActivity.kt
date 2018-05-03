@@ -16,5 +16,11 @@ class MainActivity : AppCompatActivity() {
                     Intent(this, SingleImageActivity::class.java)
             )
         }
+
+        buttonRecyclerView.setOnClickListener {
+            startActivity(
+                    Intent(this, RecyclerViewActivity::class.java)
+            )
+        }
     }
 }

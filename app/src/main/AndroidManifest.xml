@@ -21,7 +21,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SingleImageActivity"></activity>
+        <activity android:name=".SingleImageActivity" />
+        <activity android:name=".RecyclerViewActivity"></activity>
     </application>
 
 </manifest>
